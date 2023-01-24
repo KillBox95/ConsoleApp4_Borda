@@ -21,7 +21,7 @@ namespace ConsoleApp4_Borda
             Console.WriteLine("Сколько человек будет голосовать за выбор телефона?");
             N = Convert.ToInt32(Console.ReadLine());
             int[,] input = new int[Convert.ToInt32(N), 3]; //входной массив            
-            for (i = 0; i < Convert.ToInt32(N); i++)
+            for (i = 0; i < Convert.ToInt32(N); i++)  //перебор Nго кол-ва голосующих
             {
                 j = 0;
                 Console.WriteLine("Участник " + (i + 1) + " расставьте приоритет (Дорогой айфон, Дорогой андроид, Дешевый телефон) от 1 до 3");
@@ -57,20 +57,18 @@ namespace ConsoleApp4_Borda
                 else if (Convert.ToInt32(vod) == 3)
                     input[i, j] = input[i, j] + 1;
 
-                j++;
-
             }
 
 
-            Array.Resize(ref arr, arr.Length + 3);
-            for (i = 0; i < N; i++)
-                for (j = 0; j < 3; j++)
+            Array.Resize(ref arr, arr.Length + 3); //массив приортитета игр
+            for (i = 0; i < N; i++) //перебор ответов игроков
+                for (j = 0; j < 3; j++) //перебор результатов голосования
                     arr[j] = arr[j] + input[i, j];
 
-            k = Array.IndexOf(arr, arr.Max());
+            k = Array.IndexOf(arr, arr.Max()); //максимальное значения
 
-            for (i = 0; i < 3; i++)
-                if (arr[i] == arr.Max())
+            for (i = 0; i < 3; i++) //перебор реузльатов каждого телефона
+                if (arr[i] == arr.Max())  //находим максимум максимумом
                 {
                     Array.Resize(ref arr2, arr2.Length + 1);
                     arr2[i] = i;
