@@ -21,7 +21,7 @@ namespace ConsoleApp4_Borda
             Console.WriteLine("Сколько человек будет голосовать за выбор телефона?");
             N = Convert.ToInt32(Console.ReadLine());
             int[,] input = new int[Convert.ToInt32(N), 3]; //входной массив            
-            for (i = 0; i < (Convert.ToInt32(N)); i++)
+            for (i = 0; i < Convert.ToInt32(N); i++)
             {
                 j = 0;
                 Console.WriteLine("Участник " + (i + 1) + " расставьте приоритет (Дорогой айфон, Дорогой андроид, Дешевый телефон) от 1 до 3");
